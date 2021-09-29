@@ -137,5 +137,11 @@
 	```console
 	sudo systemctl restart apache2
 	```
-  
+ ### Add SSL Certificate Using Certbot
+- Install Certbot
+    ```console
+  sudo apt install certbot python3-certbot-apache
+  sudo certbot --apache
+  ```
+ 
  #### Tested on Ubuntu 20.04
