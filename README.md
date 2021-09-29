@@ -142,6 +142,7 @@
     ```console
   sudo apt install certbot python3-certbot-apache
   sudo certbot --apache
+  sudo certbot renew --dry-run (only for renew)
   ```
  
  #### Tested on Ubuntu 20.04
