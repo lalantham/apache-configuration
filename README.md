@@ -1,3 +1,45 @@
+### Apache Virtual Hosts
+
+#### How To Set Up Apache Virtual Hosts
+
+![alt text](v-host.png)
+
+- Make Server and Link it with Domain
+
+- Create Separate Web Root Directories for Websites (ex: in /var/www/mysite)
+
+- Create Config File for Each Site in sites-available
+   - Ceate File
+   ```console
+   nano sites-available/my-site.conf
+   ```
+   - Here is File Content
+   ```console
+   <VirtualHost *:80>
+     ServerName blog.mickybro.cf
+     ServerAlias www.blog.mickybro.cf
+     DocumentRoot /var/www/blog
+     ServerAdmin contact.mickybro.cf
+     ErrorLog ${APACHE_LOG_DIR}/error.log
+     CustomLog ${APACHE_LOG_DIR}/access.log combined
+   </VirtualHost>
+   ``` 
+
+- Enable Virtual Hosts
+  - Link sites-available config to sites-enable
+   ```console
+   a2ensite blog.conf
+   ```
+   - Test Apache Configuration
+	```console
+	sudo apache2ctl configtest
+	```
+   - Restart Apache
+   ```console
+   systemctl reload apache2
+   ```
+
+
 # SSL Certificate in Apache Web Server
 
 ##### How to Configure SSL Certificate in Apache Web Server
