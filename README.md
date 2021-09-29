@@ -23,6 +23,9 @@
 
 - Configure the Apache SSL Parameters
 	- Create Params.conf file
+	```console
+	sudo nano /etc/apache2/conf-available/ssl-params.conf
+	```
 	- Here is file Contents
 	```console
 	SSLCipherSuite EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH
