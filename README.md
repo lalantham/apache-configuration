@@ -115,7 +115,7 @@
 	ServerAdmin youremail.com
 	ServerName yourdomain.com
   	ServerAlias www.yourdomain.com
-  	Redirect "/" "https://your_domain_or_IP/" 
+  	Redirect permanent / https://example.com/ 
 	```
 - Update the Firewall Settings
 	```console
