@@ -144,5 +144,68 @@
   sudo certbot --apache
   sudo certbot renew --dry-run (only for renew)
   ```
+
+#### Hardening Linux Apache Web Server
+
+![alt text](server-hard.jpg)
+
+- Keep Up to Date Server Package
+
+- Auto Update Enable
+  - Install Unattended-upgrades
+   ```console
+    sudo apt install unattended-upgrades
+   ```
+   - Enable Unattended-upgrades
+   ```console
+    sudo dpkg-reconfigure --priority=low unattended-upgrades
+   ```
+
+- Securing User Login
+  - Create Least Privladge User
+   ```console
+    useradd -m -s /bin/bash {username} && passwd {username}
+    usermod -aG sudo {username}
+   ```
+   - Enable Key Authentication
+   - Disable Root Login
+   ```console
+    sudo nano /etc/ssh/ssh_config
+    PermitRootLogin no
+    AllowUsers {username}
+
+   ```
+
+- Disable Directory Listing & Server Signature
+   - Add These Lines to apache2.conf > web directory
+   ```console
+    Options -Indexes
+   ```
+
+- Disable Access for .ht Files
+   - Change These Lines
+   ```console
+   <FilesMatch "^\.ht">
+    Require all denied
+   </FilesMatch>
+   ```
+
+- Change File Permisions
+   - Set File Ownerships to www-data
+   ```console
+   chown www-data:www-data {file-name}
+   ```
+
+- Set Password
+   - Create .htaccess file
+   - Add These Lines
+   ```console
+   AuthType Basic
+   AuthName "Testing in Progress"
+   AuthUserFile /etc/apache2/.htpasswd
+   Require valid-user
+   ```
+   - Makesure Directory Override Set to All 
+   - Restart Apache Server
  
  #### Tested on Ubuntu 20.04
