@@ -1,6 +1,6 @@
 ### Apache Virtual Hosts
 
-#### How To Set Up Apache Virtual Hosts
+### How To Set Up Apache Virtual Hosts
 
 ![alt text](v-host.png)
 
@@ -39,11 +39,11 @@
    systemctl reload apache2
    ```
 
-##### How to Configure SSL Certificate in Apache Web Server
+### How to Configure SSL Certificate in Apache Web Server
 
 ![alt text](ssl.png)
 
-#### Add SSL Certificate to Ubuntu Server
+### Add SSL Certificate to Ubuntu Server
 - Make Directory for Certificates:
 	```console
 	mkdir /etc/encryption
