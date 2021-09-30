@@ -173,6 +173,25 @@
     Port {random port}
     PasswordAuthentication no
    ```
+   
+- Configure Firewall
+  - Install UFW
+   ```console
+    sudo apt install ufw
+    sudo ufw allow {ssh-port}
+    sudo ufw enable
+    sudo ufw status
+    sudo ufw allow "Apache Full"
+   ```
+   - Enable Key Authentication
+   - Disable Root Login
+   ```console
+    sudo nano /etc/ssh/ssh_config
+    PermitRootLogin no
+    AllowUsers {username}
+    Port {random port}
+    PasswordAuthentication no
+   ```
 
 - Disable Directory Listing & Server Signature
    - Add These Lines to apache2.conf > web directory
