@@ -39,9 +39,6 @@
    systemctl reload apache2
    ```
 
-
-# SSL Certificate in Apache Web Server
-
 ##### How to Configure SSL Certificate in Apache Web Server
 
 ![alt text](ssl.png)
