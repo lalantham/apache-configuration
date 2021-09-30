@@ -227,7 +227,7 @@
 
 #### Install Wordpress on Ubuntu
 
-![alt text](wp.jpg)
+![alt text](wp.png)
 
 - Setup Server Basics
   - Creating a New User
