@@ -46,7 +46,7 @@
 
 ![alt text](ssl.png)
 
-### Add SSL Certificate to Ubuntu Server
+#### Add SSL Certificate to Ubuntu Server
 - Make Directory for Certificates:
 	```console
 	mkdir /etc/encryption
