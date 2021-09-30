@@ -170,7 +170,8 @@
     sudo nano /etc/ssh/ssh_config
     PermitRootLogin no
     AllowUsers {username}
-
+    Port {random port}
+    PasswordAuthentication no
    ```
 
 - Disable Directory Listing & Server Signature
