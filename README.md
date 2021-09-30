@@ -224,5 +224,65 @@
    ```
    - Makesure Directory Override Set to All 
    - Restart Apache Server
+
+#### Install Wordpress on Ubuntu
+
+![alt text](wp.jpg)
+
+- Setup Server Basics
+  - Creating a New User
+  - Granting Administrative Privileges
+  - Setting Up a Basic Firewall
+  - Disable Root Login
+  - Disable Password Auth & Enable Key Auth
+  - Change SSH Port
+
+- Installing Apache
+   ```console
+    sudo apt install apache2
+   ```
+
+- Installing MySQL
+   ```console
+    sudo apt install mysql-server
+    sudo mysql_secure_installation
+    sudo mysql
+    CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+    CREATE USER 'wordpressuser'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
+    GRANT ALL ON wordpress.* TO 'wordpressuser'@'%';
+    FLUSH PRIVILEGES;
+   ```
+
+- Installing PHP
+   ```console
+    sudo apt install php libapache2-mod-php php-mysql
+    sudo apt install php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip
+    sudo systemctl restart apache2
+   ```
+
+- Download Wordpress
+   ```console
+    curl -O https://wordpress.org/latest.tar.gz
+    tar xzvf latest.tar.gz
+    cp /tmp/wordpress/wp-config-sample.php /tmp/wordpress/wp-config.php
+    Change database name, user, password, salt in config file
+    sudo chown -R www-data:www-data /var/www/wordpress
+   ```
+
+- Craete Wordpress V_Host
+   ```console
+    sudo nano /etc/apache2/sites-available/wordpress.conf
+    Change ServerName, ServerAlias, ServerAdmin etc..
+    sudo a2ensite wordpress.conf
+   ```
+
+- Adjusting Apache’s Configuration Overwrite
+   ```console
+    sudo nano /etc/apache2/sites-available/wordpress.conf
+    <Directory /var/www/wordpress/>
+      AllowOverride All
+    </Directory>
+    sudo a2enmod rewrite
+   ```
  
  #### Tested on Ubuntu 20.04
