@@ -145,7 +145,7 @@
   sudo certbot renew --dry-run (only for renew)
   ```
 
-#### Hardening Linux Apache Web Server
+### Hardening Linux Apache Web Server
 
 ![alt text](server-hard.jpg)
 
