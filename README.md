@@ -100,6 +100,7 @@
     SSLEngine on
 
     SSLCertificateFile path-to-certificate.crt
+    SSLCertificateChainFile /etc/pki/tls/certs/chain.crt
     SSLCertificateKeyFile path-to-private-key.key 
 	```
 - Redirect HTTP to HTTPS
@@ -121,8 +122,8 @@
 	```
 - Enable the mod_ssl module and other configurations
 	```console
-	sudo a2 enmod ssl
-	sudo a2 enmod headers
+	sudo a2enmod ssl
+	sudo a2enmod headers
 	sudo a2ensite default-ssl
 	sudo a2enconf ssl-params
 	```
